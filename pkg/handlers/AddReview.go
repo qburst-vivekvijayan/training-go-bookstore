@@ -12,7 +12,7 @@ import (
 	"github.com/qburst-vivekvijayan/training-go-bookstore.git/pkg/models"
 )
 
-func (h handler) AddReview(w http.ResponseWriter, r http.Request) {
+func (h handler) AddReview(w http.ResponseWriter, r *http.Request) {
 
 	vars := mux.Vars(r)
 	id, _ := strconv.Atoi(vars["id"])
