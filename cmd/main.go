@@ -16,7 +16,10 @@ func main() {
 	h := handlers.New(DB)
 	r.Use(middleware.Logger)
 
-	r.HandleFunc("/store", h.Store)
+	r.HandleFunc("/addBook", h.Store)
+	r.HandleFunc("/getBook", h.GetAllBooks)
+	r.HandleFunc("/addReview", h.AddReview)
+	r.HandleFunc("/getReview", h.GetReview)
 
 	http.ListenAndServe(":3000", r)
 }

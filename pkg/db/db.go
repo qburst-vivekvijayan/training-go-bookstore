@@ -9,13 +9,13 @@ import (
 	"gorm.io/gorm"
 )
 
-const (
-	host     = "localhost"
-	port     = 5432
-	user     = "postgres"
-	password = "qburst123"
-	dbname   = "book_store"
-)
+// const (
+// 	host     = "localhost"
+// 	port     = 5432
+// 	user     = "postgres"
+// 	password = "qburst123"
+// 	dbname   = "book_store"
+// )
 
 func Init() *gorm.DB {
 	dbURL := "postgres://postgres:qburst123@localhost:5432/book_store"
@@ -27,6 +27,8 @@ func Init() *gorm.DB {
 	}
 
 	db.AutoMigrate(&models.Book{})
+	db.AutoMigrate(&models.Genre{})
+	db.AutoMigrate(&models.Review{})
 
 	return db
 }
