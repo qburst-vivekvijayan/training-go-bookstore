@@ -8,8 +8,9 @@ import (
 	"net/http"
 	"strconv"
 
+	"mymodule/pkg/models"
+
 	"github.com/gorilla/mux"
-	"github.com/qburst-vivekvijayan/training-go-bookstore.git/pkg/models"
 )
 
 func (h handler) AddReview(w http.ResponseWriter, r *http.Request) {

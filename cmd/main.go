@@ -3,11 +3,11 @@ package main
 import (
 	"net/http"
 
-	"github.com/go-chi/chi/v5"
-	"github.com/go-chi/chi/v5/middleware"
+	"github.com/go-chi/chi"
+	"github.com/go-chi/chi/middleware"
 
-	"github.com/qburst-vivekvijayan/training-go-bookstore.git/pkg/db"
-	"github.com/qburst-vivekvijayan/training-go-bookstore.git/pkg/handlers"
+	"mymodule/pkg/db"
+	"mymodule/pkg/handlers"
 )
 
 func main() {

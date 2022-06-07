@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/qburst-vivekvijayan/training-go-bookstore.git/pkg/models"
+	"mymodule/pkg/models"
 )
 
 func (h handler) GetAllBooks(w http.ResponseWriter, r *http.Request) {

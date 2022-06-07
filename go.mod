@@ -1,9 +1,9 @@
-module github.com/qburst-vivekvijayan/training-go-bookstore.git
+module mymodule
 
 go 1.18
 
 require (
-	github.com/go-chi/chi/v5 v5.0.7
+	github.com/go-chi/chi v1.5.4
 	github.com/gorilla/mux v1.8.0
 	gorm.io/gorm v1.23.5
 )
@@ -17,12 +17,12 @@ require (
 	github.com/jackc/pgservicefile v0.0.0-20200714003250-2b9c44734f2b // indirect
 	github.com/jackc/pgtype v1.11.0 // indirect
 	github.com/jackc/pgx/v4 v4.16.1 // indirect
-	golang.org/x/crypto v0.0.0-20210921155107-089bfa567519 // indirect
+	golang.org/x/crypto v0.0.0-20220525230936-793ad666bf5e // indirect
 	golang.org/x/text v0.3.7 // indirect
 )
 
 require (
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/jinzhu/now v1.1.5 // indirect
-	gorm.io/driver/postgres v1.3.6
+	gorm.io/driver/postgres v1.3.7
 )

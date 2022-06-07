@@ -7,13 +7,15 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/qburst-vivekvijayan/training-go-bookstore.git/pkg/models"
+	"mymodule/pkg/models"
 )
 
 func (h handler) Store(w http.ResponseWriter, r *http.Request) {
 	// Read to request body
 	defer r.Body.Close()
 	body, err := ioutil.ReadAll(r.Body)
+
+	ret := "Created"
 
 	if err != nil {
 		log.Fatalln(err)
@@ -25,10 +27,11 @@ func (h handler) Store(w http.ResponseWriter, r *http.Request) {
 	// Append to the Books table
 	if result := h.DB.Create(&book); result.Error != nil {
 		fmt.Println(result.Error)
+		ret = string(result.Error.Error())
 	}
 
 	// Send a 201 created response
 	w.Header().Add("Content-Type", "application/json")
 	w.WriteHeader(http.StatusCreated)
-	json.NewEncoder(w).Encode("Created")
+	json.NewEncoder(w).Encode(ret)
 }
