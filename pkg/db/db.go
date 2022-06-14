@@ -1,6 +1,8 @@
 package db
 
 import (
+	"database/sql"
+	"fmt"
 	"log"
 
 	"mymodule/pkg/models"
@@ -9,13 +11,13 @@ import (
 	"gorm.io/gorm"
 )
 
-// const (
-// 	host     = "localhost"
-// 	port     = 5432
-// 	user     = "postgres"
-// 	password = "qburst123"
-// 	dbname   = "book_store"
-// )
+const (
+	host     = "localhost"
+	port     = 5432
+	user     = "postgres"
+	password = "qburst123"
+	dbname   = "book_store"
+)
 
 func Init() *gorm.DB {
 	dbURL := "postgres://postgres:qburst123@localhost:5432/book_store"
@@ -30,5 +32,29 @@ func Init() *gorm.DB {
 	db.AutoMigrate(&models.Review{})
 	db.AutoMigrate(&models.Book{})
 
+	return db
+}
+
+func createConnection() *sql.DB {
+	psqlInfo := fmt.Sprintf("host=%s port=%d user=%s "+
+		"password=%s dbname=%s sslmode=disable",
+		host, port, user, password, dbname)
+
+	// Open the connection
+	db, err := sql.Open("postgres", psqlInfo)
+
+	if err != nil {
+		panic(err)
+	}
+
+	// check the connection
+	err = db.Ping()
+
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Println("Successfully connected!")
+	// return the connection
 	return db
 }

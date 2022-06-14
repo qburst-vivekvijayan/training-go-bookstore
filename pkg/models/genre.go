@@ -1,9 +1,7 @@
 package models
 
-import "gorm.io/gorm"
-
 type Genre struct {
-	gorm.Model
-	Id    int64  `json:"id" gorm:"primaryKey"`
-	Genre string `json:"genre"`
+	Id     int64  `json:"id" gorm:"primaryKey;auto_increment;not_null"`
+	Genre  string `json:"genre"`
+	BookId int64  `json:"-"`
 }

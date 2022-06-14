@@ -1,9 +1,7 @@
 package models
 
-import "gorm.io/gorm"
-
 type Review struct {
-	gorm.Model
-	ReviewId int64  `json:"id" gorm:"primaryKey"`
+	ReviewId int64  `json:"id" gorm:"primaryKey;auto_increment;not_null"`
 	Review   string `json:"review"`
+	BookId   int64  `json:"-"`
 }

@@ -16,7 +16,7 @@ func main() {
 	h := handlers.New(DB)
 	r.Use(middleware.Logger)
 
-	r.HandleFunc("/addBook", h.Store)
+	r.HandleFunc("/addBook", h.AddBook)
 	r.HandleFunc("/getBook", h.GetAllBooks)
 	r.HandleFunc("/addReview", h.AddReview)
 	r.HandleFunc("/getReview", h.GetReview)
